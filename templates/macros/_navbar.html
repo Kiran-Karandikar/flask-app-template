@@ -1,0 +1,79 @@
+{% macro navigation_bar(page_name) -%}
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span id="nav-toggle"
+                          class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Foodprint</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse pull-right">
+                <ul class="nav navbar-nav">
+                    {% if "index_page" ==  page_name %}
+                        <li class="active"><a href="{{ url_for('login') }}">Profile</a>
+                        </li>
+                        <li class="not-active"><a id="diary-update"
+                                                  href="{{ url_for('update') }}">Diary
+                            Update</a></li>
+                        <li class="not-active"><a id="analysis"
+                                                  href="{{ url_for('review') }}">Analysis</a>
+                        </li>
+                        <li class="not-active"><a id="history"
+                                                  href="{{ url_for('all') }}">History</a>
+                        </li>
+                    {% endif %}
+                    {% if "diary_listall" == page_name %}
+                        <!-- <li><a href="/">Profile</a></li> -->
+                        <li>
+                            <a href="{{ url_for('update') }}">
+                                <div id="update-tab" class="notify">
+                                    <div id="notification_count"></div>
+                                    Update
+                                </div>
+                            </a>
+                        </li>
+                        <li><a id="analysis-tab" href="{{ url_for('review') }}">Analysis</a>
+                        </li>
+                        <li class="active"><a id="history-tab"
+                                              href="{{ url_for('all') }}">History</a>
+                        </li>
+                    {% endif %}
+                    {% if "diary_review" == page_name %}
+                        <!-- <li><a href="/">Profile</a></li> -->
+                        <li>
+                            <a href="{{ url_for('update') }}">
+                                <div class="notify">
+                                    <div id="notification_count"></div>
+                                    Update
+                                </div>
+                            </a>
+                        </li>
+                        <li class="active"><a href="{{ url_for('review') }}">Analysis</a>
+                        </li>
+                        <li><a href="{{ url_for('all') }}">History</a></li>
+                    {% endif %}
+                    {% if "diary_update" == page_name %}
+                        <li class="active">
+                            <a href="{{ url_for('update') }}">
+                                <div id="update-tab" class="notify">
+                                    <div id="notification_count"></div>
+                                    Update
+                                </div>
+                            </a>
+                        </li>
+                        <li><a id="analysis-tab" href="{{ url_for('review') }}">Analysis</a>
+                        </li>
+                        <li><a id="history-tab" href="{{ url_for('all') }}">History</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+{%- endmacro %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- default, black, black-translucent -->
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent">
+    <title>
+        {% block page_title %}
+            Food-print
+        {% endblock %}
+    </title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/nivo-lightbox.css">
+    <link rel="stylesheet" href="/static/css/nivo_themes/default/default.css">
+    <link rel="stylesheet" href="/static/css/templatemo-style.css">
+    <link href="/static/css/app.css" rel="stylesheet">
+    {{ toastr.include_toastr_css() }}
+</head>
+<body>
+<!-- Alerts -->
+{% include 'partials/_messages_alerts.html' %}
+{% block page_content %}
+    <h2> This is BASE TEMPLATE</h2>
+    <p> This page has no page content</p>
+    <p>{{ msg }}</p>
+{% endblock %}
+<script src="/static/js/jquery-2.1.3.min.js"></script>
+<script src='/static/js/moment.js'></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.tagcloud.js"></script>
+<script src='/static/js/moustache.js'></script>
+<script src='/static/js/js.cookie.js'></script>
+<script src="/static/js/dev_app.js"></script>
+{{ toastr.include_toastr_js() }}
+</body>
+</html>

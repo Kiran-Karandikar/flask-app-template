@@ -16,15 +16,12 @@ from string import Template
 
 # Global Vars
 # File settings
+APP_SECRETS = """# CSRF and Session keys
+CSRF_SECRET_KEY = '$csrf_key'
+SESSION_KEY = '$session_key'"""
 FILE_NAME = 'secret_keys.py'
 FILE_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), FILE_NAME)
-FILE_TEMPLATE = \
-	Template(''' 
-	# CSRF- and Session keys
-	CSRF_SECRET_KEY = '$csrf_key'
-	SESSION_KEY = '$session_key'
-	'''
-	         )
+FILE_TEMPLATE = Template(APP_SECRETS)
 
 
 def generate_random_key(length):
