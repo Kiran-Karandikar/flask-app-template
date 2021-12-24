@@ -4,7 +4,10 @@
 - [ ] include app tests
 - [ ] remove unnecessary requirements
 - [ ] include static folders
+- [ ] update macros template
+
 > Current Python version is 2.7
+
 config/constants.py
 
 - change `APPLICATION_DIR`

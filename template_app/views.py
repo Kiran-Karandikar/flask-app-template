@@ -35,7 +35,7 @@ class BaseHandlerView(MethodView):
 		Placeholder to define the template used in `BaseHandlerView`.
 		"""
 		templates = {
-			"get": 'food_print/index-food.html',
+			"get": 'template_app/index.html',
 			"post": 'food_print/diary_update.html',
 		}
 		return templates.get(method)
@@ -43,6 +43,7 @@ class BaseHandlerView(MethodView):
 	def get(self):
 		vlogger.info("Get method of /BaseHandlerView")
 		context = {}
+		flash("This is test of flashing messages", "info")
 		return render_template(self.get_template_name("get"), **context)
 
 	@inspect_call
@@ -85,6 +86,8 @@ class BaseHandlerView(MethodView):
 
 
 def base_template():
-	flash("This is test of flashing messages", "info")
-	# return render_template("base.html")
-	return render_template("<H1> For testing </H1>")
+	flash("Base template loaded", "info")
+	flash("This is warning message of flash", "warning")
+	flash("This is error message of flash", "error")
+	flash("This is success message of flash", "success")
+	return render_template("base.html")

@@ -3,14 +3,14 @@
         <script type="text/javascript">
             (function ($) {
                 $(document).ready(function () {
-                    {#                    {{ toastr_options }}#}
+                    {{ toastr_options }}
+                    console.log("The toastr options are:");
                     {% for category, message in messages %}
+                        var message_string = '{{ message | replace("\'","") }}';
                         {% if category is undefined or category == 'message' %}
-                            toastr.info(\
-                            '{{ message | replace("'","\\\\'") }}\', \'{{ category|capitalize }}\')
+                            toastr.info(message_string, '{{ category|capitalize }}');
                         {% else %}
-                            toastr.{{ category }}(\
-                            '{{ message | replace("'","\\\\'") }}\', \'{{ category|capitalize }}\')
+                            toastr.{{ category }}(message_string,'{{ category|capitalize }}');
                         {% endif %}
                     {% endfor %}
                 });
