@@ -29,13 +29,14 @@ app.config ['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #  injected into HTML responses when debug mode is on. In production,
 #  setting app.debug = False will disable the toolbar.
 ##############################################################################
-if os.getenv('FLASK_CONF') == 'TEST':
+FLASK_CONF = os.getenv('FLASK_CONF').strip()
+if FLASK_CONF == 'TEST':
 	app.config.from_object('config.settings.Testing')
 	toolbar = DebugToolbarExtension(app)
 	app.wsgi_app = DebuggedApplication(
 		app.wsgi_app, evalex=True, pin_security=False, pin_logging=False
 	)
-elif os.getenv('FLASK_CONF') == 'DEV' or (
+elif FLASK_CONF == 'DEV' or (
 		'SERVER_SOFTWARE' in os.environ and
 		os.environ ['SERVER_SOFTWARE'].startswith('Dev')
 ):
@@ -45,7 +46,7 @@ elif os.getenv('FLASK_CONF') == 'DEV' or (
 	app.wsgi_app = DebuggedApplication(
 		app.wsgi_app, evalex=True, pin_security=False, pin_logging=False
 	)
-elif os.getenv('FLASK_CONF') == "PROD":
+elif FLASK_CONF == "PROD":
 	# todo - check the environment specific variables....
 	# Production in the standard environment
 	app.config.from_object('config.settings.Production')

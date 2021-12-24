@@ -1,5 +1,5 @@
 """
-Helper function related app `template-app`.
+Helper function related app `template_app`.
 """
 # Python Modules
 # -N/A

@@ -1,5 +1,5 @@
 """
-Stores all constants related to app `template-app`.
+Stores all constants related to app `template_app`.
 """
 # Python Modules
 # -N/A

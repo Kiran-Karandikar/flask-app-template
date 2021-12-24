@@ -8,7 +8,8 @@
 # -N/A
 
 # Project Modules
-from template-app.views import BaseHandlerView, base_template
+from template_app.views import BaseHandlerView, base_template
+
 
 # Global Vars
 # -N/A
@@ -23,7 +24,8 @@ def load_app_routes(app):
 	Returns:
 
 	"""
-	app.add_url_rule('/', view_func=BaseHandlerView.as_view('base'))
+	app.add_url_rule('/', view_func=BaseHandlerView.as_view('index'))
+
 
 def load_app_test_routes(app):
 	"""

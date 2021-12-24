@@ -1,6 +1,9 @@
 <> Place Holder <>
 - [ ] repo name and repo details.
 - [ ] issues : Bump python version to latest
+- [ ] include app tests
+- [ ] remove unnecessary requirements
+- [ ] include static folders
 > Current Python version is 2.7
 config/constants.py
 

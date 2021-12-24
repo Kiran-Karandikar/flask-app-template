@@ -1,10 +1,10 @@
 """
-Temporary Script to hold all view request for app `template-app`.
+Temporary Script to hold all view request for app `template_app`.
 """
 # Python Modules
 from __future__ import with_statement
 from flask import (
-	jsonify, make_response, render_template, request,
+	jsonify, make_response, render_template, request,flash
 )
 from flask.views import MethodView
 
@@ -82,3 +82,9 @@ class BaseHandlerView(MethodView):
 				return response
 		vlogger.error("Requested user not found, returning .....")
 		return render_template(self.get_template_name("get"), **context)
+
+
+def base_template():
+	flash("This is test of flashing messages", "info")
+	# return render_template("base.html")
+	return render_template("<H1> For testing </H1>")

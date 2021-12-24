@@ -11,7 +11,7 @@ Script to store all constants.
 
 # Global Vars
 APPLICATION_DIR = "flask-app-template"
-APP_NAME = "template-app"
+APP_NAME = "template_app"
 
 # Extension: Flask-cors
 # Following defines all required response headers for CORS

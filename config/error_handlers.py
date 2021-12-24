@@ -6,14 +6,13 @@ from flask import json, jsonify, make_response, render_template
 from werkzeug.exceptions import HTTPException
 
 # Project Modules
-# todo
-from food_print import gae_get_logger
+from template_app import get_app_logger
 
 # 3rd Party Modules
 # -N/A
 
 # Global Vars
-e_logger = gae_get_logger("HTTP_ERRORS")
+e_logger = get_app_logger("HTTP_ERRORS")
 
 
 # define an error handling function
