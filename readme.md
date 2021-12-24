@@ -1,10 +1,6 @@
 <> Place Holder <>
 - [ ] repo name and repo details.
 - [ ] issues : Bump python version to latest
-- [ ] include app tests
-- [ ] remove unnecessary requirements
-- [ ] include static folders
-- [ ] update macros template
 
 > Current Python version is 2.7
 

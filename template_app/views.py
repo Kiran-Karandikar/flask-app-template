@@ -3,9 +3,11 @@ Temporary Script to hold all view request for app `template_app`.
 """
 # Python Modules
 from __future__ import with_statement
+from collections import namedtuple
 from flask import (
 	jsonify, make_response, render_template, request,flash
 )
+from flask_cors import cross_origin
 from flask.views import MethodView
 
 # 3rd Party Modules
@@ -36,10 +38,11 @@ class BaseHandlerView(MethodView):
 		"""
 		templates = {
 			"get": 'template_app/index.html',
-			"post": 'food_print/diary_update.html',
+			"post": 'template_app/loggedIN.html',
 		}
 		return templates.get(method)
 
+	@cross_origin()
 	def get(self):
 		vlogger.info("Get method of /BaseHandlerView")
 		context = {}
@@ -50,17 +53,22 @@ class BaseHandlerView(MethodView):
 	def post(self):
 		vlogger.info("Post method of /BaseHandlerView")
 		context = {"success": False}
+		vlogger.info(self.request.values)
+		vlogger.info(self.request.args)
 		payload = self.request.values.to_dict()
-		userid = payload.get("userid")
-		password = payload.get("password")
+		user_name = payload.get("login-user_name")
+		password = payload.get("login-password")
 		content_type = self.request.headers.get('Content-Type')
-		vlogger.info("User id: {}".format(userid))
+		vlogger.info("User id: {}".format(user_name))
 		vlogger.info("Password : {}".format(password))
 		vlogger.info("Requested Content Type: {}".format(content_type))
-		if userid is not None and password is not None:
+		if user_name is not None and password is not None:
 			user = None
 			try:
-				user = User.query(User.name == str(userid)).get()
+				# Fetch user details from the database here.....
+				# set `user` to the fetched user from database
+				USER = namedtuple('User', ['name', 'password'])
+				user = USER(user_name, password)
 			except Exception as e:
 				vlogger.exception(
 					"Exception while fetching entity: `User`"
@@ -70,16 +78,12 @@ class BaseHandlerView(MethodView):
 				vlogger.info("Requested User is: {}".format(user))
 				vlogger.info("Successfully logged in ... ")
 				context.update(
-					{"success": True, "user_group": user.group,
-					 "monitor_other_name": user.monitor_other_name}
+					{"success": True}
 				)
-				response = make_response(jsonify(context))
-				response.headers.add('Content-Type', 'application/json')
-				##############################################################
-				# returning the json response instead of rendering template
-				# `update` since the dev_app.js uses the json data to verify
-				# login.
-				#############################################################
+				response = make_response(
+					render_template(self.get_template_name("get"), **context),
+					200
+				)
 				return response
 		vlogger.error("Requested user not found, returning .....")
 		return render_template(self.get_template_name("get"), **context)

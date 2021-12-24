@@ -4,7 +4,6 @@
             (function ($) {
                 $(document).ready(function () {
                     {{ toastr_options }}
-                    console.log("The toastr options are:");
                     {% for category, message in messages %}
                         var message_string = '{{ message | replace("\'","") }}';
                         {% if category is undefined or category == 'message' %}

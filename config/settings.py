@@ -21,9 +21,9 @@ except ImportError:
 
 
 class Config(object):
-	# Set secret keys for CSRF protection
 	# Flask-Cache settings
 	# CACHE_TYPE = 'gaememcached'
+	# Set secret keys for CSRF protection
 	SECRET_KEY = CSRF_SECRET_KEY
 	CSRF_SESSION_KEY = SESSION_KEY
 
@@ -31,13 +31,13 @@ class Config(object):
 class Development(Config):
 	# Flask-DebugToolbar settings
 	DEBUG = True
-	# CSRF_ENABLED = True
+	CSRF_ENABLED = False
 	DEBUG_TB_PROFILER_ENABLED = True
 	DEBUG_TB_INTERCEPT_REDIRECTS = False
 
 
 class Testing(Config):
-	# CSRF_ENABLED = True
+	CSRF_ENABLED = False
 	TESTING = True
 	DEBUG = True
 

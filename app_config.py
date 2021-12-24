@@ -30,18 +30,15 @@ app.config ['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #  setting app.debug = False will disable the toolbar.
 ##############################################################################
 FLASK_CONF = os.getenv('FLASK_CONF').strip()
-if FLASK_CONF == 'TEST':
-	app.config.from_object('config.settings.Testing')
-	toolbar = DebugToolbarExtension(app)
-	app.wsgi_app = DebuggedApplication(
-		app.wsgi_app, evalex=True, pin_security=False, pin_logging=False
-	)
-elif FLASK_CONF == 'DEV' or (
-		'SERVER_SOFTWARE' in os.environ and
-		os.environ ['SERVER_SOFTWARE'].startswith('Dev')
-):
-	# Development settings
-	app.config.from_object('config.settings.Development')
+if FLASK_CONF != "PROD":
+	if FLASK_CONF == 'TEST':
+		app.config.from_object('config.settings.Testing')
+	elif FLASK_CONF == 'DEV' or (
+			'SERVER_SOFTWARE' in os.environ and
+			os.environ ['SERVER_SOFTWARE'].startswith('Dev')
+	):
+		# Development settings
+		app.config.from_object('config.settings.Development')
 	toolbar = DebugToolbarExtension(app)
 	app.wsgi_app = DebuggedApplication(
 		app.wsgi_app, evalex=True, pin_security=False, pin_logging=False
