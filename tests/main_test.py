@@ -17,7 +17,7 @@ test_logger = get_app_logger(__name__)
 
 class ViewsTestCase(unittest.TestCase):
 	"""
-	#todo
+	All test cases related to `template_app` views.
 	"""
 	def setUp(self):
 		self.app = app

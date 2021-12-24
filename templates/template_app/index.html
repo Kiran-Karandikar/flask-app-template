@@ -6,7 +6,7 @@ Login To ...template_app
 
 {{ nbar.navigation_bar("Flask_template") }}
 
-<div class="form">
+<div class="form" xmlns="http://www.w3.org/1999/html">
 
   <ul class="tab-group">
     <li class="tab active"><a href="#signup">Sign Up</a></li>
@@ -17,21 +17,21 @@ Login To ...template_app
     <div id="signup">
       <h1>Sign Up for Free</h1>
 
-      <form action="{{ url_for('index') }}" method="post">
+      <form action="{{ url_for('index') }}" method="POST">
 
         <div class="top-row">
           <div class="field-wrap">
             <label>
               First Name<span class="req">*</span>
             </label>
-            <input type="text" required autocomplete="off" id="first_name" />
+            <input type="text" required autocomplete="off" name="first_name" />
           </div>
 
           <div class="field-wrap">
             <label>
               Last Name<span class="req">*</span>
             </label>
-            <input type="text" required autocomplete="off" id="last_name"/>
+            <input type="text" required autocomplete="off" name="last_name"/>
           </div>
         </div>
 
@@ -39,18 +39,16 @@ Login To ...template_app
           <label>
             User Name<span class="req">*</span>
           </label>
-          <input type="text" required autocomplete="off" id="user_name"/>
+          <input type="text" required autocomplete="off" name="user_name"/>
         </div>
 
         <div class="field-wrap">
           <label>
             Set A Password<span class="req">*</span>
           </label>
-          <input type="password" required autocomplete="off" id="password"/>
+          <input type="password" required autocomplete="off" name="password"/>
         </div>
-
-        <button type="submit" class="button button-block"/>
-        Get Started</button>
+        <input type="submit" class="button button-block" value="Get Started"/>
 
       </form>
 
@@ -59,32 +57,25 @@ Login To ...template_app
     <div id="login">
       <h1>Welcome Back!</h1>
 
-      <form action="{{ url_for('index') }}" method="post">
+      <form action="{{ url_for('index') }}" method="POST">
 
         <div class="field-wrap">
           <label>
             User name<span class="req">*</span>
           </label>
-          <input type="text" required autocomplete="off" id="login-user_name"/>
+          <input type="text" required autocomplete="off" name="login-user_name"/>
         </div>
 
         <div class="field-wrap">
           <label>
             Password<span class="req">*</span>
           </label>
-          <input type="password" required autocomplete="off" id="login-password"/>
+          <input type="password" required autocomplete="off" name="login-password"/>
         </div>
-
         <p class="forgot"><a href="#">Forgot Password?</a></p>
-
-        <button class="button button-block"/>
-        Log In</button>
-
+        <input type="submit" class="button button-block" value="Log In"/>
       </form>
-
     </div>
-
   </div><!-- tab-content -->
-
 </div> <!-- /form -->
 {% endblock %}

@@ -26,8 +26,8 @@ app.config ['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ##############################################################################
 # Set up the environment specific parameters.
 # feature - debugging Application The toolbar will automatically be
-#  injected into HTML responses when debug mode is on. In production,
-#  setting app.debug = False will disable the toolbar.
+# injected into HTML responses when debug mode is on. In production,
+# setting app.debug = False will disable the toolbar.
 ##############################################################################
 FLASK_CONF = os.getenv('FLASK_CONF').strip()
 if FLASK_CONF != "PROD":
@@ -44,7 +44,7 @@ if FLASK_CONF != "PROD":
 		app.wsgi_app, evalex=True, pin_security=False, pin_logging=False
 	)
 elif FLASK_CONF == "PROD":
-	# todo - check the environment specific variables....
+	# todo - check the here for environment specific variables....
 	# Production in the standard environment
 	app.config.from_object('config.settings.Production')
 else:

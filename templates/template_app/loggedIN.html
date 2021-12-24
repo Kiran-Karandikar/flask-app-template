@@ -5,5 +5,8 @@
 {% block page_content %}
     {{ nbar.navigation_bar("Flask_template") }}
     <h1> Logged in Success ...</h1>
-    <p>Context data: {{ context }}</p>
+    {% if success %}
+        <p>Context data</p>
+        <p>Successful ?: {{ success }}</p>
+    {% endif %}
 {% endblock %}

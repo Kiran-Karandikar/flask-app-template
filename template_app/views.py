@@ -5,7 +5,7 @@ Temporary Script to hold all view request for app `template_app`.
 from __future__ import with_statement
 from collections import namedtuple
 from flask import (
-	jsonify, make_response, render_template, request,flash
+	 make_response, render_template, request,flash
 )
 from flask_cors import cross_origin
 from flask.views import MethodView
@@ -53,9 +53,8 @@ class BaseHandlerView(MethodView):
 	def post(self):
 		vlogger.info("Post method of /BaseHandlerView")
 		context = {"success": False}
-		vlogger.info(self.request.values)
-		vlogger.info(self.request.args)
 		payload = self.request.values.to_dict()
+		vlogger.info("Request payload is : {}".format(payload))
 		user_name = payload.get("login-user_name")
 		password = payload.get("login-password")
 		content_type = self.request.headers.get('Content-Type')
@@ -80,11 +79,15 @@ class BaseHandlerView(MethodView):
 				context.update(
 					{"success": True}
 				)
+				flash("Logged in for User:{}".format(user_name), 'success')
 				response = make_response(
-					render_template(self.get_template_name("get"), **context),
+					render_template(self.get_template_name("post"), **context),
 					200
 				)
 				return response
+		flash("Not able to log in.....", 'error')
+		flash("Sign Up, Not supported...", 'warning')
+		flash("Log in using any username and password", 'info')
 		vlogger.error("Requested user not found, returning .....")
 		return render_template(self.get_template_name("get"), **context)
 
