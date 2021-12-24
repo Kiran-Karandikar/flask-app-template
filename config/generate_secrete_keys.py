@@ -33,7 +33,7 @@ def generate_random_key(length):
 
 	Returns: type:str : Secret key of `length` random characters.
 	"""
-	chars = string.letters + string.digits
+	chars = string.ascii_letters + string.digits
 	return ''.join([choice(chars) for i in range(int(length))])
 
 
@@ -44,7 +44,7 @@ def write_file(contents):
 	Args:
 		contents: File contents to be written.
 	"""
-	with open(FILE_PATH, 'wb') as f:
+	with open(FILE_PATH, 'w') as f:
 		f.write(contents)
 
 

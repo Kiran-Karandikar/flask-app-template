@@ -1,5 +1,16 @@
+# Flask App Template
 
-- [ ] repo name and repo details.
+Simple and reusable flask app.
+Minimalistic, minimalistic, configurable flask app.
+
+## Table of Contents
+- [Configuration](#configuration)
+- [Start](#start)
+- [Team](#team)
+
+---
+### Configuration
+> Tested with python version 2.7, needs testing for latest python
 - [ ] issues : Bump python version to latest
 
 > Current Python version is 2.7

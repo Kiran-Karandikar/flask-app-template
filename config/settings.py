@@ -12,7 +12,7 @@ Configuration for Flask app.
 
 # Global Vars
 try:
-	from secret_keys import CSRF_SECRET_KEY, SESSION_KEY
+	from config.secret_keys import CSRF_SECRET_KEY, SESSION_KEY
 except ImportError:
 	raise ImportError(
 		"Secret_keys.py file does not exist.  Use `generate_secrete_keys.py` "

@@ -2,8 +2,7 @@
 # Docstring.
 """
 # Python Modules
-from flask import Response, make_response, request
-
+from flask import make_response, request
 
 # 3rd Party Modules
 # -N/A

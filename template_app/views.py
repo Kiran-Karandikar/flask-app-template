@@ -2,7 +2,6 @@
 Temporary Script to hold all view request for app `template_app`.
 """
 # Python Modules
-from __future__ import with_statement
 from collections import namedtuple
 from flask import (
 	 make_response, render_template, request,flash
