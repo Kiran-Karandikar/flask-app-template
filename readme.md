@@ -55,6 +55,7 @@
 </div>
 
 <!-- BADGES.MD Finish -->
+<!-- BADGES.MD Finish -->
 # Flask App Template
 > Tested with python version 3.8
 
@@ -121,6 +122,7 @@ coverage run app_test.py
 ```shell
 coverage report template_app/*.py
 ```
+
 ### Other projects
 
 Check out the other stuff I've worked upon.
