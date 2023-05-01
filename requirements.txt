@@ -7,7 +7,7 @@ colorama==0.4.4
 configparser==4.0.2
 contextlib2==0.6.0.post1
 coverage==6.2
-Flask==1.1.4
+Flask==2.3.2
 Flask-Cors==3.0.10
 Flask-DebugToolbar==0.11.0
 Flask-Toastr==0.5.6
