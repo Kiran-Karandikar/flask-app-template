@@ -116,6 +116,7 @@ coverage report template_app/*.py
 
 
 
+
 ### Other projects
 
 Check out the other stuff I've worked upon.
